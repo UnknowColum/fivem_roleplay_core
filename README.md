@@ -3,3 +3,6 @@ Basic core for create FiveM server
 ___
 # Server Export
 
+Script encore en construiction.
+
+Non terminé
