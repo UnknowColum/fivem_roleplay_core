@@ -1,0 +1,70 @@
+@font-face {
+	font-family: 'pricedown';
+	src: url(font/pricedown.ttf);
+}
+
+#money{
+	font-family:pricedown;
+	position:absolute;
+	right:1em;
+	top:1em;
+	font-size:2em;
+	color: #ffffff;
+}
+
+/*  Si on afficher les 3 info on garde lui */
+/*
+#dirtymoney{
+	font-family:pricedown;
+	position:absolute;
+	right:1em;
+	top:3em;
+	font-size:2em;
+	color: #b90000;
+}
+*/
+/* Si non on affiche de cette façon*/
+
+#dirtymoney{
+	font-family:pricedown;
+	position:absolute;
+	right:1em;
+	top:2em;
+	font-size:2em;
+	color: #b90000;
+}
+
+#bankbalance{
+	font-family:pricedown;
+	position:absolute;
+	right:1em;
+	top:2em;
+	font-size:2em;
+	color: #ffffff;
+}
+
+#rmvMoney{
+	display:none;
+	font-family:pricedown;
+	position:absolute;
+	right:1em;
+	top:4em;
+	font-size:2em;
+	color:#B9121B;
+}
+
+#addMoney{
+	display:none;
+	font-family:pricedown;
+	position:absolute;
+	right:1em;
+	top:4em;
+	font-size:2em;
+	color: #07ca00;
+}
+
+#icon {
+	height: 35px;
+	width: auto;
+}
+

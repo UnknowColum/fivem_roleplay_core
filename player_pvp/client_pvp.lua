@@ -1,0 +1,16 @@
+AddEventHandler('playerSpawned', function(spawn)
+    TriggerServerEvent('five_roleplay_core:pvp_status')
+    print('test called pvp_status')
+end)
+
+RegisterNetEvent('five_roleplay_core:pvp_status_true')
+AddEventHandler('five_roleplay_core:pvp_status_true', function()
+    SetCanAttackFriendly(GetPlayerPed(-1), true, false)
+    NetworkSetFriendlyFireOption(true)
+end)
+
+RegisterNetEvent('five_roleplay_core:pvp_status_false')
+AddEventHandler('five_roleplay_core:pvp_status_false', function()
+    SetCanAttackFriendly(GetPlayerPed(-1), true, false)
+    NetworkSetFriendlyFireOption(true)
+end)
