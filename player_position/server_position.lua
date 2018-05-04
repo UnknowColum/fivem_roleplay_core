@@ -1,4 +1,3 @@
-local debug_server = true
 
 function DebugServer(arg)
     if debug_server == true then

@@ -1,6 +1,5 @@
 local firstspawn = 0
 local loaded = false
-local debug_print = true
 
 
 Citizen.CreateThread(function()
@@ -42,7 +41,6 @@ function Notify(text)
     AddTextComponentString(text)
     DrawNotification(false, false)
 end
-
 -- Notification end
 
 --Event pour le spawn du joueur vers la dernière position connue
@@ -54,9 +52,10 @@ AddEventHandler("five_roleplay_core:spawn_last_position", function(data, PosX, P
             FreezeEntityPosition(GetPlayerPed(-1), true)
             Wait(2500)
             FreezeEntityPosition(GetPlayerPed(-1), false)
+            Citizen.Wait(10)
             TriggerEvent('five_roleplay_core:advenced_notication', 'CHAR_PEGASUS_DELIVERY', 'Bienvenue !', false, "")
             Citizen.Wait(10)
-            Notify("~g~New spawn success.")
+            Notify("~b~Bienvenue a vous sur le serveur. Inscrivé vous.")
             PlaySound(-1, "CHARACTER_SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0);
             loaded = true
         else

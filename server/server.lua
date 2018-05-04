@@ -1,8 +1,13 @@
-config = {
-    player_money = 1500,
-    player_bank_balance = 1500,
-    player_dirty_money = 0
-}
+local debug_server = true
+
+AddEventHandler('onMySQLReady', function()
+    local server_configuration = MySQL.Sync.fetchAll('SELECT * FROM server_configuration WHERE id = @id', { ["@id"] = 1 })
+    config = {
+        player_money = server_configuration[1].default_player_money,
+        player_bank_balance = server_configuration[1].default_player_bank_balance,
+        player_dirty_money = server_configuration[1].default_player_dirty_money
+    }
+end)
 
 playerInfoMoney = {}
 
@@ -19,26 +24,20 @@ function dump(o)
     end
 end
 
-function test()
-    print(dump(config))
-end
-
 RegisterServerEvent('five_roleplay_core:spawn')
 AddEventHandler('five_roleplay_core:spawn', function()
     local source = source
     local player = getPlayerInfo(source)
     if player[1] ~= nil then
-        print('testmoney' .. player[1].player_money)
         TriggerClientEvent('five_roleplay_core:initializeinfo', source, player[1].player_money, player[1].player_dirty_money, player[1].player_bank_balance)
     end
 end)
-
 
 AddEventHandler('playerConnecting', function(playerName, setKickReason)
     local source = source
     local player = getPlayerInfo(source)
     if player[1] == nil then
-        createUser(source)
+        creation_utilisateur(source)
     end
 end)
 

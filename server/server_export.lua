@@ -10,7 +10,6 @@ function getIdentifier(id)
     return player
 end
 
-
 function getPlayerInfo(id)
     local player = getIdentifier(id)
     local info = MySQL.Sync.fetchAll("SELECT * FROM player_account WHERE player_identifier = @identifier", {
@@ -30,24 +29,20 @@ function getPlayerAllMoney(id)
         })
         playerInfoMoney[player] = { ["player_money"] = info[1].player_money, ["player_bank_balance"] = info[1].player_bank_balance, ["player_dirty_money"] = info[1].player_dirty_money }
     end
-    print(dump(playerInfoMoney[player]))
     return playerInfoMoney[player]
 end
 
-
 function refreshMoney(id)
     local player = getIdentifier(id)
-    print('refresh de money')
     local info = MySQL.Sync.fetchAll("SELECT * FROM player_account WHERE player_identifier = @identifier", {
         ['@identifier'] = player
     })
-    print('refresh de money' .. info[1].player_money)
     playerInfoMoney[player].player_money = info[1].player_money
     playerInfoMoney[player].player_bank_balance = info[1].player_bank_balance
     playerInfoMoney[player].player_dirty_money = info[1].player_dirty_money
 end
 
-function createUser(id)
+function creation_utilisateur(id)
     local player = getIdentifier(id)
 
     MySQL.Async.execute("INSERT INTO `player_account` (`player_identifier`, `player_group`, `player_permission_level`, `player_money`, `player_bank_balance`,`player_dirty_money`) VALUES (@identifier,'user', '0', @money, @player_bank_balance, @dirtymoney) ", {
@@ -57,7 +52,6 @@ function createUser(id)
         ['@dirtymoney'] = tonumber(config.player_dirty_money)
     })
     playerInfoMoney[player] = { ["money"] = config.player_money, ["player_bank_balance"] = config.player_bank_balance, ["dirtymoney"] = config.player_dirty_money }
-    print('nouvel user ' .. player .. ' enrengistrer')
 end
 
 function removeMoney(id, rmv)
@@ -158,5 +152,9 @@ function change_status_wanted_ia(arg)
 end
 
 function save_player_position(LastPosX, LastPosY, LastPosZ, LastPosH)
-    TriggerServerEvent('five_roleplay_core:save_position', LastPosX, LastPosY, LastPosZ, LastPosH)
+    TriggerEvent('five_roleplay_core:save_position', LastPosX, LastPosY, LastPosZ, LastPosH)
+end
+
+function update_player_life(arg)
+    TriggerEvent('five_roleplay_core:update', arg)
 end
