@@ -27,7 +27,7 @@ end
 RegisterServerEvent('five_roleplay_core:spawn')
 AddEventHandler('five_roleplay_core:spawn', function()
     local source = source
-    local player = getPlayerInfo(source)
+    local player = _server_get_player_data_info(source)
     if player[1] ~= nil then
         TriggerClientEvent('five_roleplay_core:initializeinfo', source, player[1].player_money, player[1].player_dirty_money, player[1].player_bank_balance)
     end
@@ -35,7 +35,7 @@ end)
 
 AddEventHandler('playerConnecting', function(playerName, setKickReason)
     local source = source
-    local player = getPlayerInfo(source)
+    local player = _server_get_player_data_info(source)
     if player[1] == nil then
         creation_utilisateur(source)
     end

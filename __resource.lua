@@ -30,17 +30,18 @@ client_script {
 
 server_exports {
     'getIdentifier',
-    'getPlayerInfo',
-    'getPlayerAllMoney',
-    'refreshMoney',
+    '_server_get_player_data_info',
+    '_server_get_player_all_money',
+    '_server_refrech_player_money',
     '_player_remove_money',
     '_player_add_money',
     '_player_add_bank_money',
     '_player_remove_bank_money',
+    '_player_remove_money',
     '_player_remove_dirty_money',
-    'addDirtyMoney',
-    'setDirtyMoney',
-    'removeMoneyForBank',
-    'removeBankForMoney',
-    'save_player_position'
-}
+    '_player_set_dirty_money',
+    '_player_remove_money_for_bank',
+    '_player_remove_bank_for_money',
+    'save_player_position',
+    'update_player_life'
+}  

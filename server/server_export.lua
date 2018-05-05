@@ -4,14 +4,14 @@ function getIdentifiant(id)
     end
 end
 
-function getIdentifier(id)
+function _player_get_identifier(id)
     local identifiers = GetPlayerIdentifiers(id)
     local player = getIdentifiant(identifiers)
     return player
 end
 
-function getPlayerInfo(id)
-    local player = getIdentifier(id)
+function _server_get_player_data_info(id)
+    local player = _player_get_identifier(id)
     local info = MySQL.Sync.fetchAll("SELECT * FROM player_account WHERE player_identifier = @identifier", {
         ['@identifier'] = player
     })
@@ -21,8 +21,8 @@ function getPlayerInfo(id)
     return info
 end
 
-function getPlayerAllMoney(id)
-    local player = getIdentifier(id)
+function _server_get_player_all_money(id)
+    local player = _player_get_identifier(id)
     if playerInfoMoney[player] == nil then
         local info = MySQL.Sync.fetchAll("SELECT * FROM player_account WHERE player_identifier = @identifier", {
             ['@identifier'] = player
@@ -32,8 +32,8 @@ function getPlayerAllMoney(id)
     return playerInfoMoney[player]
 end
 
-function refreshMoney(id)
-    local player = getIdentifier(id)
+function _server_refrech_player_money(id)
+    local player = _player_get_identifier(id)
     local info = MySQL.Sync.fetchAll("SELECT * FROM player_account WHERE player_identifier = @identifier", {
         ['@identifier'] = player
     })
@@ -43,7 +43,7 @@ function refreshMoney(id)
 end
 
 function creation_utilisateur(id)
-    local player = getIdentifier(id)
+    local player = _player_get_identifier(id)
 
     MySQL.Async.execute("INSERT INTO `player_account` (`player_identifier`, `player_group`, `player_permission_level`, `player_money`, `player_bank_balance`,`player_dirty_money`) VALUES (@identifier,'user', '0', @money, @player_bank_balance, @dirtymoney) ", {
         ['@identifier'] = player,
@@ -55,7 +55,7 @@ function creation_utilisateur(id)
 end
 
 function _player_remove_money(id, rmv)
-    local player = getIdentifier(id)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money - rmv)
     MySQL.Async.execute("UPDATE player_account SET player_money = player_money - @rmv WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -65,7 +65,7 @@ function _player_remove_money(id, rmv)
 end
 
 function _player_add_money(id, add)
-    local player = getIdentifier(id)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money + add)
     MySQL.Async.execute("UPDATE player_account SET player_money = player_money + @add WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -75,7 +75,7 @@ function _player_add_money(id, add)
 end
 
 function _player_add_bank_money(id, add)
-    local player = getIdentifier(id)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance + add)
     MySQL.Async.execute("UPDATE player_account SET player_bank_balance = player_bank_balance + @add WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -85,7 +85,7 @@ function _player_add_bank_money(id, add)
 end
 
 function _player_remove_bank_money(id, rmv)
-    local player = getIdentifier(id)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance - rmv)
     MySQL.Async.execute("UPDATE player_account SET player_bank_balance = player_bank_balance - @rmv WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -94,8 +94,8 @@ function _player_remove_bank_money(id, rmv)
     TriggerClientEvent('five_roleplay_core:rmvBank', id, rmv)
 end
 
-function _player_remove_dirty_money(id, rmv)
-    local player = getIdentifier(id)
+function _player_remove_money(id, rmv)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money - rmv)
     MySQL.Async.execute("UPDATE player_account SET player_money = player_money - @rmv WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -104,8 +104,8 @@ function _player_remove_dirty_money(id, rmv)
     TriggerClientEvent('five_roleplay_core:rmvDirtyMoney', id, rmv)
 end
 
-function _player_add_dirty_money(id, add)
-    local player = getIdentifier(id)
+function _player_remove_dirty_money(id, add)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_dirty_money = tonumber(playerInfoMoney[player].player_dirty_money + add)
     MySQL.Async.execute("UPDATE player_account SET player_dirty_money = player_dirty_money - @add WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -114,8 +114,8 @@ function _player_add_dirty_money(id, add)
     TriggerClientEvent('five_roleplay_core:rmvDirtyMoney', id, add)
 end
 
-function setDirtyMoney(id, nb)
-    local player = getIdentifier(id)
+function _player_set_dirty_money(id, nb)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_dirty_money = tonumber(nb)
     MySQL.Async.execute("UPDATE player_account SET player_dirty_money = @nb WHERE player_identifier = @identifier", {
         ['@identifier'] = player,
@@ -124,8 +124,8 @@ function setDirtyMoney(id, nb)
     TriggerClientEvent('five_roleplay_core:setDirtyMoney', id, nb)
 end
 
-function removeMoneyForBank(id, rmv)
-    local player = getIdentifier(id)
+function _player_remove_money_for_bank(id, rmv)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money - rmv)
     playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance + rmv)
     MySQL.Async.execute("UPDATE player_account SET player_bank_balance = player_bank_balance + @rmv, player_money = player_money - @rmv WHERE player_identifier = @identifier", {
@@ -135,8 +135,8 @@ function removeMoneyForBank(id, rmv)
     TriggerClientEvent('five_roleplay_core:removeMoneyForBank', id, tonumber(rmv))
 end
 
-function removeBankForMoney(id, rmv)
-    local player = getIdentifier(id)
+function _player_remove_bank_for_money(id, rmv)
+    local player = _player_get_identifier(id)
     playerInfoMoney[player].player_money = tonumber(playerInfoMoney[player].player_money + rmv)
     playerInfoMoney[player].player_bank_balance = tonumber(playerInfoMoney[player].player_bank_balance - rmv)
     MySQL.Async.execute("UPDATE player_account SET player_bank_balance = player_bank_balance - @rmv, player_money = player_money + @rmv WHERE player_identifier = @identifier", {
