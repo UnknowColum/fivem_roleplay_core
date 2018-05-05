@@ -17,7 +17,6 @@ server_script {
     'player_life/life_server.lua'
 }
 
-
 client_script {
     'client/client.lua', -- five_roleplay_core client
     'wrapper/wrapper_client.lua', -- Warpper client
@@ -25,7 +24,8 @@ client_script {
     'player_position/client_pvp.lua', -- Enable / Disable PVP script
     'player_wanted/client_wanted.lua',  -- Enable / disable IA Coops wanted client
     'vocal_systeme/vocal_client.lua',
-    'player_life/life_client.lua'
+    'player_life/life_client.lua',
+    'player_crosshair/crosshair_client.lua'
 }
 
 server_exports {
