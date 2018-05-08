@@ -1,9 +1,7 @@
 var moneyactuelle = 0;
 var dirtymoneyactuelle = 0;
 var bankbalanceactuelle = 0;
-
 $(function(){
-
     window.addEventListener("message", function(event) {
 		var mess = event.data;
 
