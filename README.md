@@ -1,5 +1,9 @@
 # fivem_roleplay_core
 Basic core for create FiveM server
+
+FR : Si une âme charitable veut effectuer une documentation je serais extrêmement reconnaissant
+
+EN : If a charitable soul wants to carry out a documentation I would be extremely reconcant
 ___
 # Server Export
 dependency MySQL-Async | https://github.com/brouznouf/fivem-mysql-async
@@ -39,3 +43,5 @@ exports['five_roleplay_core']:save_player_position(source, x, y, z, h)
 
 exports['five_roleplay_core']:update_player_life(source,number)
 ```
+
+
