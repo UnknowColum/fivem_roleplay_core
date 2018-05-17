@@ -6,3 +6,5 @@ ___
 dependency MySQL-Async | https://github.com/brouznouf/fivem-mysql-async
 
 import table.sql on you Mysql serveur
+
+more soon
