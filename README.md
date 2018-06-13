@@ -3,6 +3,12 @@ Basic core for create FiveM server
 
 # Thanks to @dictateurfou for the basic function and the display of money.
 
+# Soon
+
+- Skin loader
+- Speedometter
+- IPL loader with Props
+- And more...
 ___
 # How to install ?
 dependency MySQL-Async | https://github.com/brouznouf/fivem-mysql-async
