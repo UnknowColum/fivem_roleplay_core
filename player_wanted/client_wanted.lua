@@ -1,4 +1,4 @@
-local WantedIA_Status = false
+local WantedIA_Status = fivem_roleplay_core._wanted_ia
 
 AddEventHandler('five_roleplay_core:change_status')
 RegisterNetEvent('five_roleplay_core:change_status', function(arg)

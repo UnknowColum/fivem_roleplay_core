@@ -1,6 +1,5 @@
 AddEventHandler('playerSpawned', function(spawn)
     TriggerServerEvent('five_roleplay_core:pvp_status')
-    print('test called pvp_status')
 end)
 
 RegisterNetEvent('five_roleplay_core:pvp_status_true')
