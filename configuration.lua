@@ -1,5 +1,5 @@
 fivem_roleplay_core = {
-
+    _display_logs = true,
     _sufix = 'fivem_roleplay_core',
     _pvp_status = true,
     _wanted_ia = false,

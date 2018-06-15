@@ -149,10 +149,16 @@ end
 function change_status_wanted_ia(arg)
     local source = source
     TriggerClientEvent('five_roleplay_core:change_status', source, true)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Changement du comportement des IA policier')
+    end
+
 end
 
 function save_player_position(LastPosX, LastPosY, LastPosZ, LastPosH)
     TriggerEvent('five_roleplay_core:save_position', LastPosX, LastPosY, LastPosZ, LastPosH)
+
 end
 
 function update_player_life(arg)
