@@ -14,7 +14,7 @@ FiveM Roleplay core, Fast build FiveM serveur with this ressource.
 * Crosshair (true / false)
 * Vocal distance systeme
 * Pvp (true / false)
-
+* Update notification 
 
 # Special Thank to
 @DictateurFou (Display money and function)
