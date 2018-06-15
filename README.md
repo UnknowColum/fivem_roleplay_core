@@ -1,12 +1,12 @@
 # fivem_roleplay_core
 Basic core for create FiveM server
 
-# Thanks to @dictateurfou for the basic function and the display of money.
+# Special Thank to.
+@DictateurFou | Base Functionne and display money
 
 # Soon
 
 - Skin loader
-- Speedometter
 - IPL loader with Props
 - And more...
 ___
