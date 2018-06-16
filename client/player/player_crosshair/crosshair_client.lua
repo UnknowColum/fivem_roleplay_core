@@ -2,14 +2,6 @@ local driveWanderTaskActive = false
 local driveToWpTaskActive = false
 
 
--- function
-function ShowNotification(text)
-    SetNotificationTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawNotification(false, false)
-end
-
-
 function DriveToWp()
     local PlayerPed = GetPlayerPed(-1)
     if driveTaskActive then
@@ -64,17 +56,10 @@ Citizen.CreateThread(function()
             isSniper = false
         end
         if not isSniper then
-            HideHudComponentThisFrame(14)
+            if fivem_roleplay_core._player_crosshair == false then
+                HideHudComponentThisFrame(14)
+            end
         end
-    end
-end)
-
-
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        SetCanAttackFriendly(GetPlayerPed(-1), true, false)
-        NetworkSetFriendlyFireOption(true)
     end
 end)
 
