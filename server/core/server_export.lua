@@ -62,6 +62,11 @@ function _player_remove_money(id, rmv)
         ['@rmv'] = tonumber(rmv)
     })
     TriggerClientEvent('five_roleplay_core:rmvMoney', id, rmv)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Utilisateur : |'..player..' Remove argent portefeuille : '..rmv)
+    end
+
 end
 
 function _player_add_money(id, add)
@@ -72,6 +77,11 @@ function _player_add_money(id, add)
         ['@add'] = tonumber(add)
     })
     TriggerClientEvent('five_roleplay_core:addMoney', id, add)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Utilisateur : |'..player..' Ajout Argent portefeuille : '..add)
+    end
+
 end
 
 function _player_add_bank_money(id, add)
@@ -82,6 +92,11 @@ function _player_add_bank_money(id, add)
         ['@add'] = tonumber(add)
     })
     TriggerClientEvent('five_roleplay_core:addBank', id, add)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Utilisateur : |'..player..' Ajout Argent banque : '..add)
+    end
+
 end
 
 function _player_remove_bank_money(id, rmv)
@@ -92,6 +107,11 @@ function _player_remove_bank_money(id, rmv)
         ['@rmv'] = tonumber(rmv)
     })
     TriggerClientEvent('five_roleplay_core:rmvBank', id, rmv)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Utilisateur : |'..player..' Remove argent de la banque : '..rmv..' Et ajouté dans le porte feuille du joeur')
+    end
+
 end
 
 function _player_remove_money(id, rmv)
@@ -102,6 +122,11 @@ function _player_remove_money(id, rmv)
         ['@rmv'] = tonumber(rmv)
     })
     TriggerClientEvent('five_roleplay_core:rmvDirtyMoney', id, rmv)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Utilisateur : |'..player..' Remove Argent : '..rmv)
+    end
+
 end
 
 function _player_remove_dirty_money(id, add)
@@ -112,6 +137,11 @@ function _player_remove_dirty_money(id, add)
         ['@add'] = tonumber(add)
     })
     TriggerClientEvent('five_roleplay_core:rmvDirtyMoney', id, add)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Utilisateur : |'..player..' Remove Argent sale : '..add)
+    end
+
 end
 
 function _player_set_dirty_money(id, nb)
@@ -122,6 +152,11 @@ function _player_set_dirty_money(id, nb)
         ['@nb'] = tonumber(nb)
     })
     TriggerClientEvent('five_roleplay_core:setDirtyMoney', id, nb)
+
+    if fivem_roleplay_core._display_logs == true then
+       print('Utilisateur : |'..player..' Ajout Argent sale : '..nb)
+    end
+
 end
 
 function _player_remove_money_for_bank(id, rmv)
@@ -153,12 +188,10 @@ function change_status_wanted_ia(arg)
     if fivem_roleplay_core._display_logs == true then
         print('Changement du comportement des IA policier')
     end
-
 end
 
 function save_player_position(LastPosX, LastPosY, LastPosZ, LastPosH)
     TriggerEvent('five_roleplay_core:save_position', LastPosX, LastPosY, LastPosZ, LastPosH)
-
 end
 
 function update_player_life(arg)

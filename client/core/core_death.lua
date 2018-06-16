@@ -18,4 +18,9 @@ AddEventHandler('fivem_roleplay_core:revive', function(count_heal)
     SetPedToRagdoll(GetPlayerPed(-1), 1000, 1000, 0, 0, 0, 0)
     Citizen.Wait(1)
     SetEntityHealth(ped, fullHealth)
+
+    if fivem_roleplay_core._display_logs == true then
+        print('Revive, Utilisateur : | '..ped)
+    end
+
 end)

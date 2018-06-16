@@ -18,7 +18,7 @@ AddEventHandler("five_roleplay_core:save_position", function(LastPosX, LastPosY,
     MySQL.Async.execute("UPDATE player_account SET `player_position` = @player_position WHERE player_identifier = @username", { ['@username'] = player, ['@player_position'] = lastPosition })
     TriggerClientEvent("five_roleplay_core:notification", source, "~g~Position Sauvegardée")
     if fivem_roleplay_core._display_logs == true then
-        print('Sauvegarde position : | Utilisateur ' .. player)
+        print('Sauvegarde position : | Utilisateur ' .. player .. ' - '..lastPosition)
     end
 end)
 
@@ -49,7 +49,6 @@ AddEventHandler("five_roleplay_core:SpawnPlayer", function()
             if (result) then
                 for k, v in ipairs(result) do
                     if v.player_position ~= "" then
-                        DebugServer(v.player_position)
                         local ToSpawnPos = json.decode(v.player_position)
                         local PosX = ToSpawnPos[1]
                         local PosY = ToSpawnPos[2]

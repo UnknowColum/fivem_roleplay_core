@@ -1,5 +1,3 @@
-local debug_server = true
-
 AddEventHandler('onMySQLReady', function()
     config = {
         player_money = fivem_roleplay_core._default_player_money,

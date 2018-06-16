@@ -3,7 +3,7 @@ Citizen.CreateThread(function()
         local data = json.decode(response)
         local get_data_file = LoadResourceFile(GetCurrentResourceName(), "version.json")
         local version_json = json.decode(get_data_file).version
-        if version_json ~= data.version and tonumber(version_json) < tonumber(data.version) then
+        if tostring(version_json) ~= tostring(data.version) and tostring(version_json) < tostring(data.version) then
             print("--------------------------------------------------------------------------")
             print('Votre version ne semble plus à jour. Veuillez vous rendre sur GitHub.com/iTexZoz afin de téléchargé la nouvelle version.')
             print("https://github.com/iTexZoz/fivem_roleplay_core/releases")
@@ -11,7 +11,7 @@ Citizen.CreateThread(function()
             print('Pvp Status : | ' .. tostring(fivem_roleplay_core._pvp_status) .. '')
             print('Wanted AI status : | ' .. tostring(fivem_roleplay_core._wanted_ia) .. '')
             print("--------------------------------------------------------------------------")
-        elseif tonumber(version_json) > tonumber(data.version) then
+        elseif tostring(version_json) > tostring(data.version) then
             print("--------------------------------------------------------------------------")
             print("     Votre version semble être plus élevée que la version actuelle.")
             print("--------------------------------------------------------------------------")
