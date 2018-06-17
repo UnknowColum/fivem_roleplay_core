@@ -44,6 +44,9 @@ Locales['english'] = {
 	["add_diry_money"] = "Dirty money added",
 	["no_player_health"] = "No player_health information found via the identifer",
 
+	-- Vehicle
+	["vehicle_broken"] = "~r~Failure detected ~n~Call a garage !",
+
 	-- ban && whitliste Syteme
 	["unknow_ban_message_erreur"] = "!!! File : player_accessibility !!! Open issues on https://github.com/iTexZoz/fivem_roleplay_core/issues !!!",
 	["try_connection_banned"] = " Attempt to login the user: |'",

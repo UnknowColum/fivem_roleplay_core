@@ -44,8 +44,11 @@ Locales["french"] = {
 	["remove_dirty_money"] = "Remove Argent sale",
 	["add_diry_money"] = "Ajout Argent sale",
 
-	-- ban && whitliste Syteme
+	-- Vehicle
+	["vehicle_broken"] = "~r~    Panne détecté ~n~Appelez un garage !",
 
+
+	-- ban && whitliste Syteme
 	["unknow_ban_message_erreur"] = "!!! File : player_accessibility !!! Open issues on https://github.com/iTexZoz/fivem_roleplay_core/issues !!!",
 	["try_connection_banned"] = "Tentative de connexion de l\'utilisateur : | '",
 	["try_connection_banned_message"] = "Connexion Refusé (Bannisement)",

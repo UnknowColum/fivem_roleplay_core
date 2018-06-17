@@ -1,6 +1,6 @@
 fivem_roleplay_core = {
 
-    _language = 'french', -- Languege
+    _language = 'english', -- Languege
 
     _whitelist = false, -- WhiteList (true / false)
 
