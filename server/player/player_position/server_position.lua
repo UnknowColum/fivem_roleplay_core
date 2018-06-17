@@ -18,7 +18,7 @@ AddEventHandler("five_roleplay_core:save_position", function(LastPosX, LastPosY,
     MySQL.Async.execute("UPDATE player_account SET `player_position` = @player_position WHERE player_identifier = @username", { ['@username'] = player, ['@player_position'] = lastPosition })
     TriggerClientEvent("five_roleplay_core:notification", source, "~g~Position Sauvegardée")
     if fivem_roleplay_core._display_logs == true then
-        print('Sauvegarde position : | Utilisateur ' .. player .. ' - '..lastPosition)
+        print('' .. _L("position_save") .. ' | ' .. _L("user") .. ' ' .. player .. ' - '..lastPosition)
     end
 end)
 
@@ -39,7 +39,7 @@ AddEventHandler("five_roleplay_core:SpawnPlayer", function()
             TriggerClientEvent("five_roleplay_core:spawn_last_position", source, 0, PosX, PosY, PosZ)
 
             if fivem_roleplay_core._display_logs == true then
-                print('Nouveaux spawn de l\'utilisateur : | ' .. player)
+                print('' .. _L("new_spawn_user") .. ' | ' .. player)
             end
 
         end
@@ -57,7 +57,7 @@ AddEventHandler("five_roleplay_core:SpawnPlayer", function()
                         TriggerClientEvent("five_roleplay_core:spawn_last_position", source, 1, PosX, PosY, PosZ)
 
                         if fivem_roleplay_core._display_logs == true then
-                            print('Reconnexion de l\'utilisateur : | '..player..' Spawn dernier position effectué')
+                            print('' .. _L("user_reconnect") .. ' | '..player..' ' .. _L("user_reconnect2") .. '')
                         end
 
                     end

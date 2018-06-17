@@ -13,7 +13,7 @@ AddEventHandler('five_roleplay_core:spawn', function()
         if result[1].player_health == nil then
 
             if fivem_roleplay_core._display_logs == true then
-                print('aucune information player_health trouvez via l\'identifier')
+                print('' .. _L("no_player_health") .. '')
             end
 
         else
@@ -21,9 +21,8 @@ AddEventHandler('five_roleplay_core:spawn', function()
             TriggerClientEvent('five_roleplay_core:setHealth', source, resultat) -- Set point de vie
 
             if fivem_roleplay_core._display_logs == true then
-                print('Setup : | Point de vie ' .. resultat .. ' Utilisateur : ' .. perso)
+                print('Setup : | ' .. _L("health") .. ' ' .. resultat .. ' ' .. _L("user") .. ' ' .. perso)
             end
-
         end
     end)
 end)
@@ -33,17 +32,13 @@ AddEventHandler("five_roleplay_core:update", function(health)
     local identifiers = GetPlayerIdentifiers(source)
     local perso = getIdentifiant(identifiers)
     if health == 0 then
-
         if fivem_roleplay_core._display_logs == true then
-            print('Utilisateur : | Mort '..perso)
+            print('' .. _L("user") .. ' : | ' .. _L("death") .. ' ' .. perso)
         end
-
     else
-
         if fivem_roleplay_core._display_logs == true then
-         print('Vie de l\'utilisateur : | '..perso..' - '..health)
+            print('' .. _L("user_health") .. ' | ' .. perso .. ' - ' .. health)
         end
-
     end
     MySQL.Sync.execute("UPDATE player_account SET player_health=@player_health WHERE player_identifier = @username", { ['@player_health'] = health, ['@username'] = perso })
 end)

@@ -37,7 +37,7 @@ AddEventHandler('playerConnecting', function(playerName, setKickReason)
         creation_utilisateur(source)
 
         if fivem_roleplay_core._display_logs == true then
-            print('Nouvelle utilisateur : | '..source..'')
+            print('' .. _L("new_user") .. '| '..playerName..'')
         end
 
     end
