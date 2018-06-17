@@ -28,10 +28,3 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
-function Texte(text, showtime)
-    ClearPrints()
-    SetNotificationTextEntry('STRING')
-    AddTextComponentString(text)
-    DrawNotification(false, false)
-end

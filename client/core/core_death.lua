@@ -20,7 +20,7 @@ AddEventHandler('fivem_roleplay_core:revive', function(count_heal)
     SetEntityHealth(ped, fullHealth)
 
     if fivem_roleplay_core._display_logs == true then
-        print('Revive, Utilisateur : | '..ped)
+        print(''.._L('revive')..' : | '..ped)
     end
 
 end)

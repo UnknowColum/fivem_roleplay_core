@@ -1,5 +1,4 @@
 local firstSpawn = true
-local debug_print = true
 
 AddEventHandler("playerSpawned", function(spawn)
 	if firstSpawn == true then

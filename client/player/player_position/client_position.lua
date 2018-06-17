@@ -23,27 +23,7 @@ AddEventHandler('five_roleplay_core:notification', function(alert)
     Notify(alert)
 end)
 
--- Notification  start
-RegisterNetEvent("five_roleplay_core:advenced_notication")
-AddEventHandler("five_roleplay_core:advenced_notication", function(icon, sender, title, text)
-    Citizen.CreateThread(function()
-        Wait(1)
-        SetNotificationTextEntry("STRING");
-        AddTextComponentString(text);
-        --SetNotificationMessage(icon, icon, true, 9, sender, title, text);
-        SetNotificationMessageClanTag(icon, icon, true, 8, sender, title, 0.5, text)
-        DrawNotification(false, true);
-    end)
-end)
 
-function Notify(text)
-    SetNotificationTextEntry('STRING')
-    AddTextComponentString(text)
-    DrawNotification(false, false)
-end
--- Notification end
-
---Event pour le spawn du joueur vers la dernière position connue
 RegisterNetEvent("five_roleplay_core:spawn_last_position")
 AddEventHandler("five_roleplay_core:spawn_last_position", function(data, PosX, PosY, PosZ)
     if not loaded then

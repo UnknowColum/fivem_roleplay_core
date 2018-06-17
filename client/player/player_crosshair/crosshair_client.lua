@@ -37,7 +37,6 @@ function DriveWander()
 end
 
 -- Boucle
-
 Citizen.CreateThread(function()
     local isSniper = false
     while true do

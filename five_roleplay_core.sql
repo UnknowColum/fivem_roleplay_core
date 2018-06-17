@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 16 juin 2018 à 13:36
+-- Généré le :  Dim 17 juin 2018 à 17:02
 -- Version du serveur :  10.1.30-MariaDB
 -- Version de PHP :  7.2.2
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `gta5_gamemode_essential`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `player_accessibility`
+--
+
+CREATE TABLE `player_accessibility` (
+  `id` int(11) NOT NULL,
+  `player_identifier` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1',
+  `reason` text NOT NULL,
+  `expires` varchar(255) NOT NULL,
+  `timestamp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -43,8 +58,18 @@ CREATE TABLE `player_account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Déchargement des données de la table `player_account`
+--
+
+--
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `player_accessibility`
+--
+ALTER TABLE `player_accessibility`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `player_account`
@@ -57,10 +82,16 @@ ALTER TABLE `player_account`
 --
 
 --
+-- AUTO_INCREMENT pour la table `player_accessibility`
+--
+ALTER TABLE `player_accessibility`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+--
 -- AUTO_INCREMENT pour la table `player_account`
 --
 ALTER TABLE `player_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
