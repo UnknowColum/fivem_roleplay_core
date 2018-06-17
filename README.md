@@ -17,7 +17,8 @@ FiveM Roleplay core, Fast build FiveM serveur with this ressource.
 * Update notification 
 
 # Special Thank to
-@DictateurFou (Display money and function)
+@DictateurFou (Display money and function)<p>
+@Sheenthebest (Translation Systeme)
 
 # Depedency
 
