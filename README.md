@@ -18,6 +18,11 @@ FiveM Roleplay core, Fast build FiveM serveur with this ressource.
 * WhiteList (true / false)
 * Ban systeme
 
+# Soon
+* Skin Loader
+* Inscription Systeme (name, famillyname, ect..)
+
+
 # Special Thank to
 @DictateurFou (Display money and function)<p>
 @Sheenthebest (Translation Systeme, Dead screen)
