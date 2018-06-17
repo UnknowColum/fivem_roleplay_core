@@ -20,7 +20,7 @@ FiveM Roleplay core, Fast build FiveM serveur with this ressource.
 
 # Special Thank to
 @DictateurFou (Display money and function)<p>
-@Sheenthebest (Translation Systeme)
+@Sheenthebest (Translation Systeme, Dead screen)
 
 # Depedency
 
