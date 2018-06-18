@@ -23,6 +23,8 @@ server_script {
 
     'server/player_accessibility/server.lua',
 
+    'server/player/player_skin/server.lua',
+
     'language/language.lua',
     'language/english.lua',
     'language/french.lua'
@@ -46,6 +48,8 @@ client_script {
     'client/player/player_crosshair/crosshair_client.lua',
     'client/vehicle/hud/client.lua',
 
+    'server/player/player_skin/client.lua',
+
     'language/language.lua',
     'language/english.lua',
     'language/french.lua'
@@ -54,6 +58,7 @@ client_script {
 
 server_exports {
     'getIdentifier',
+    '_player_get_identifier',
     '_server_get_player_data_info',
     '_server_get_player_all_money',
     '_server_refrech_player_money',
@@ -68,5 +73,6 @@ server_exports {
     '_player_remove_bank_for_money',
     'save_player_position',
     'update_player_life',
-    '_player_respawn'
+    '_player_respawn',
+    '_skin_loader'
 }  

@@ -182,3 +182,8 @@ end
 function update_player_life(arg)
     TriggerEvent('five_roleplay_core:update', arg)
 end
+
+
+function _skin_loader(arg)
+    TriggerEvent('fivem_roleplay_core::skin_loader', arg)
+end

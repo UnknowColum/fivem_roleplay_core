@@ -1,8 +1,8 @@
 fivem_roleplay_core = {
 
-    _language = 'english', -- Languege
+    _language = 'french', -- Languege
 
-    _whitelist = false, -- WhiteList (true / false)
+    _whitelist = true, -- WhiteList (true / false)
 
     _display_logs = true, -- Display logs serveur (true / false)
     _sufix = 'fivem_roleplay_core',
