@@ -1,6 +1,8 @@
 # fivem_roleplay_core
 FiveM Roleplay core, Fast build FiveM serveur with this ressource.
 
+# Discord
+https://discord.gg/UV8k2RE
 
 # Features
 * Car HUD
